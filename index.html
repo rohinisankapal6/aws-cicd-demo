@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata for the browser -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - My Project</title>
+
+    <!-- Internal CSS -->
+    <style>
+        /* --- 1. Global Styles & Resets --- */
+        body {
+            /* A clean, modern font stack that uses the user's system font */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            
+            /* A light gray background to make the content card stand out */
+            background-color: #f0f2f5;
+            
+            /* Standard text color */
+            color: #333;
+            
+            /* Remove default margin and center the main container */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            padding: 30px 15px; /* Add some padding for smaller screens */
+            line-height: 1.6;
+        }
+
+        /* --- 2. Main Content Container (The "Card") --- */
+        .container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        /* --- 3. Header and Navigation --- */
+        header {
+            text-align: center;
+            border-bottom: 2px solid #eeeeee;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline-block; /* Make the list horizontal */
+            margin: 0 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* --- 4. Main Content Area --- */
+        main {
+            text-align: left; /* Reset text alignment for main content */
+        }
+
+        section {
+            margin-bottom: 35px; /* Add space between sections */
+        }
+
+        section:last-of-type {
+            margin-bottom: 0; /* Remove margin from the last section */
+        }
+
+        h2 {
+            color: #007bff;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+            font-size: 1.8em;
+        }
+
+        /* Style for both ordered and unordered lists */
+        ul, ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px; /* Space out list items */
+        }
+
+        /* --- 5. Footer --- */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eeeeee;
+            font-size: 0.9em;
+            color: #777777;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+
+        <!-- Header Section: Contains the main title and navigation -->
+        <header>
+            <h1>Welcome to My Website</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main Content Section: The primary content of the page -->
+        <main>
+            <section>
+                <h2>About This Page</h2>
+                <p>
+                    This is a simple HTML page with internal CSS, perfect for practicing a CI/CD pipeline.
+                </p>
+                <p>
+                    When you push a change to this file in your Git repository, your automated pipeline
+                    should deploy the new version to your web server or hosting service.
+                </p>
+            </section>
+
+            <section>
+                <h2>Key Features</h2>
+                <ul>
+                    <li>Semantic HTML5 structure</li>
+                    <li>Modern, clean styling with internal CSS</li>
+                    <li>Fully self-contained in a single file</li>
+                    <li>Easy to edit for testing purposes</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>How to Test Your Pipeline</h2>
+                <ol>
+                    <li>Clone the repository containing this file.</li>
+                    <li>Change the "Version" number in the footer below.</li>
+                    <li>Commit and push your change.</li>
+                    <li>Check your live site to see if the version number updated!</li>
+                </ol>
+            </section>
+        </main>
+
+        <!-- Footer Section: Contains copyright and version info -->
+        <footer>
+            <p>© 2024 Your Name or Company</p>
+            
+            <!-- 
+              PRACTICE AREA:
+              Change the version number below to trigger your CI/CD pipeline!
+            -->
+            <p>Version: 1.0.0</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
