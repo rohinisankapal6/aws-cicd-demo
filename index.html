@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CI/CD Practice Project</title>
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-primary: #000000;
+      --color-text-primary: #111827;
+      --color-text-secondary: #6b7280;
+      --color-card-bg: #f9fafb;
+      --color-card-shadow: rgba(0, 0, 0, 0.05);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      --radius: 0.75rem;
+      --transition-duration: 0.3s;
+    }
+
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text-primary);
+      line-height: 1.6;
+      font-size: 18px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--transition-duration);
+    }
+    a:hover,
+    a:focus {
+      color: var(--color-primary);
+      outline: none;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Sticky header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background-color: var(--color-bg);
+      box-shadow: 0 2px 4px var(--color-card-shadow);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.5rem;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      color: var(--color-primary);
+      user-select: none;
+    }
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav li {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    nav a {
+      padding: 0.25rem 0;
+      position: relative;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0%;
+      height: 2px;
+      background: var(--color-primary);
+      transition: width var(--transition-duration);
+    }
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 6rem 0 5rem;
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 {
+      font-weight: 700;
+      font-size: 3rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      color: var(--color-primary);
+    }
+    .hero p {
+      color: var(--color-text-secondary);
+      font-size: 1.15rem;
+      margin-bottom: 2.25rem;
+      max-width: 28rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--color-primary);
+      color: var(--color-bg);
+      font-weight: 600;
+      font-size: 1.125rem;
+      padding: 1rem 2.5rem;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transition: background-color var(--transition-duration), transform var(--transition-duration);
+      user-select: none;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: #222222;
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* Features */
+    .features {
+      padding: 4rem 0 6rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+    .card {
+      background: var(--color-card-bg);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 8px var(--color-card-shadow);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: box-shadow var(--transition-duration), transform var(--transition-duration);
+    }
+    .card:hover,
+    .card:focus-within {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      transform: translateY(-6px);
+      outline: none;
+    }
+    .card-icon {
+      font-size: 2.5rem;
+      color: var(--color-primary);
+      user-select: none;
+    }
+    .card h3 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--color-primary);
+    }
+    .card p {
+      flex-grow: 1;
+      color: var(--color-text-secondary);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--color-text-secondary);
+      font-size: 0.875rem;
+      user-select: none;
+      border-top: 1px solid var(--color-card-shadow);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+      .hero p {
+        font-size: 1rem;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary navigation">
+      <a href="#" class="logo" aria-label="CI/CD Practice Project Home">CI/CD Practice</a>
+      <nav>
+        <ul>
+          <li><a href="#features" tabindex="0">Features</a></li>
+          <li><a href="#get-started" tabindex="0">Get Started</a></li>
+          <li><a href="#about" tabindex="0">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" role="banner" aria-labelledby="hero-title hero-desc">
+      <h1 id="hero-title">Build and Practice Your CI/CD Pipeline</h1>
+      <p id="hero-desc">A simple static project to help you learn continuous integration and deployment by practicing with Git and cloud platforms.</p>
+      <a href="#get-started" class="btn-primary" role="button">Get Started</a>
+    </section>
+
+    <section class="container features" id="features" aria-label="Key features">
+      <article class="card" tabindex="0" aria-labelledby="feature1-title" aria-describedby="feature1-desc">
+        <div class="card-icon" aria-hidden="true">🔧</div>
+        <h3 id="feature1-title">Easy Setup</h3>
+        <p id="feature1-desc">This project is pure static HTML, perfect for practicing CI/CD workflows without backend dependencies.</p>
+      </article>
+
+      <article class="card" tabindex="0" aria-labelledby="feature2-title" aria-describedby="feature2-desc">
+        <div class="card-icon" aria-hidden="true">🚀</div>
+        <h3 id="feature2-title">Fast Deployment</h3>
+        <p id="feature2-desc">Deploy your changes instantly to platforms like Netlify, Vercel, or GitHub Pages with automated pipelines.</p>
+      </article>
+
+      <article class="card" tabindex="0" aria-labelledby="feature3-title" aria-describedby="feature3-desc">
+        <div class="card-icon" aria-hidden="true">📈</div>
+        <h3 id="feature3-title">Learn & Improve</h3>
+        <p id="feature3-desc">Gain confidence using version control, build automation, and deployment strategies by hands-on practice.</p>
+      </article>
+    </section>
+
+    <section class="container" id="get-started" style="padding-bottom: 6rem; text-align: center;">
+      <h2 style="font-weight: 700; font-size: 2rem; margin-bottom: 1rem; color: var(--color-primary);">Ready to start?</h2>
+      <p style="max-width: 480px; margin: 0 auto 2.5rem; color: var(--color-text-secondary);">Fork this repository, push your changes, and watch your CI/CD pipeline in action!</p>
+      <a href="#" class="btn-primary" role="button">Fork on GitHub</a>
+    </section>
+
+    <section class="container" id="about" style="padding-bottom: 6rem; text-align: center; color: var(--color-text-secondary); font-size: 1rem;">
+      <p>Created for developers to easily practice CI/CD fundamentals with a clean, fast-loading static site.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2024 CI/CD Practice Project. All rights reserved.
+  </footer>
+</body>
+</html>
+
