@@ -1,0 +1,52 @@
+version: 0.2
+ 
+phases:
+
+  install:
+
+    # runtime-versions can be added here if you need a specific version of Node, Python, etc.
+
+    commands:
+
+      - echo "Installing NGINX"
+
+      - sudo apt-get update -y
+
+      - sudo apt-get install nginx -y
+
+  pre_build:
+
+    commands:
+
+      - echo "Nothing to do in the pre_build phase..."
+
+  build:
+
+    commands:
+
+      - echo "Build started on `date`"
+
+      - echo "Copying files to web server directory..."
+
+      - cp index.html /var/www/html/
+
+  post_build:
+
+    commands:
+
+      - echo "Build completed on `date`"
+
+      # You would typically restart the server here, for example:
+
+      # - sudo systemctl restart nginx
+ 
+artifacts:
+
+  files:
+
+    - '**/*'
+
+  # If you are deploying an application, you might want to specify the build output directory
+
+  # base-directory: 'dist'
+ 
